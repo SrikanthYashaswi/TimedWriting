@@ -38,7 +38,7 @@
 	document.getElementById("start").disabled = true;
 	setInterval(function(){
 		seconds--;
-		cur_min = seconds / 60;
+		cur_min = parseInt(seconds / 60);
 		cur_sec = seconds % 60;
 		document.getElementById("time").innerHTML = cur_min+":"+cur_sec
 		if(seconds == 0)
