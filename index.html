@@ -33,22 +33,27 @@
 </textarea>
 
 <script>
+  var seconds;
+  var interval;
   function startTimer(){
         seconds = 30 * 60;  
 	document.getElementById("start").disabled = true;
 	document.getElementById("resp").disabled = false;
-	setInterval(function(){
-		seconds--;
-		cur_min = parseInt(seconds / 60);
-		cur_sec = seconds % 60;
-		document.getElementById("time").innerHTML = "remaining: "+cur_min+":"+cur_sec;
-		if(seconds == 0)
-		{
-			document.getElementById("resp").disabled = true;
-			document.getElementById("start").disabled = false;
-			alert("timesup!");
-		}
-	}, 1000);  
+	interval = setInterval(beginCountDown, 1000);  
+  }
+	
+  function beginCountDown(){
+	seconds--;
+	cur_min = parseInt(seconds / 60);
+	cur_sec = seconds % 60;
+	document.getElementById("time").innerHTML = "remaining: "+cur_min+":"+cur_sec;
+	if(seconds == 0)
+	{
+		document.getElementById("resp").disabled = true;
+		document.getElementById("start").disabled = false;
+		alert("timesup!");
+		clearInterval(interval);
+	}
   }
 
 </script>
