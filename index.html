@@ -21,11 +21,11 @@
 			font-size:19px;
 			font-family:Roboto light;		
 			border:0px;	
+			border-top:1px dashed grey;
 		}
         </style>
 </head>
 <body style="margin:0px;">
-<div>remaining: <div>
 <div id="time"></div>
 <button onclick="startTimer()" id="start">start</button>
 	
@@ -40,7 +40,7 @@
 		seconds--;
 		cur_min = parseInt(seconds / 60);
 		cur_sec = seconds % 60;
-		document.getElementById("time").innerHTML = cur_min+":"+cur_sec
+		document.getElementById("time").innerHTML = "remaining: "+cur_min+":"+cur_sec;
 		if(seconds == 0)
 		{
 			document.getElementById("resp").disabled = true;
